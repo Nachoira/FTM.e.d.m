@@ -1,0 +1,501 @@
+/* ============================================================
+   SPORTSTORE — ESTILOS PRINCIPALES
+   ============================================================
+
+   📌 DÓNDE PERSONALIZAR IMÁGENES:
+   1. FONDO DEL HERO → buscá el comentario "IMAGEN DE FONDO DEL HERO"
+      Reemplazá 'tu-imagen-fondo.jpg' con la ruta de la imagen del cliente.
+
+   2. IMÁGENES DE PRODUCTOS → se reemplazan directamente en el HTML,
+      en los atributos src="" de cada <img> dentro de .product-img
+
+   ============================================================ */
+
+
+/* ─── VARIABLES ─────────────────────────────────────────────── */
+:root {
+  --black:   #080808;
+  --off:     #111111;
+  --card:    #161616;
+  --border:  #242424;
+  --lime:    #C8F135;
+  --lime2:   #a8d120;
+  --white:   #F2F2F0;
+  --muted:   #888888;
+  --radius:  6px;
+}
+
+/* ─── RESET ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; width: 100%; }
+
+/* ─── NOISE OVERLAY ──────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────────── */
+.display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+}
+
+/* ─── UTILITY ────────────────────────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+  border: 1px solid var(--lime);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+/* ─── NAVBAR ─────────────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(8,8,8,0.85);
+  border-bottom: 1px solid var(--border);
+  animation: fadeDown 0.6s ease both;
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+.nav-logo span { color: var(--lime); }
+.nav-cta {
+  background: var(--lime);
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--lime2); transform: translateY(-1px); }
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+/*
+  📸 IMAGEN DE FONDO DEL HERO
+  ─────────────────────────────
+  Reemplazá 'tu-imagen-fondo.jpg' con la imagen que te pase el cliente.
+  Podés usar una ruta relativa (ej: images/fondo-hero.jpg)
+  o una URL absoluta (ej: https://tusitio.com/img/fondo.jpg).
+
+  El overlay oscuro (linear-gradient) se aplica encima de la imagen
+  para que el texto siga siendo legible. Podés ajustar la opacidad
+  cambiando los valores rgba(8,8,8, ← este número).
+*/
+.hero {
+  position: relative;
+  padding: 110px 24px 90px;
+  text-align: center;
+  overflow: hidden;
+
+  /* ↓↓↓ REEMPLAZÁ 'tu-imagen-fondo.jpg' CON LA IMAGEN DEL CLIENTE ↓↓↓ */
+  background-image:
+    linear-gradient(to bottom, rgba(8,8,8,0.72) 0%, rgba(8,8,8,0.88) 100%),
+    url('tu-imagen-fondo.jpg');
+  /* ↑↑↑ ─────────────────────────────────────────────────────────── ↑↑↑ */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* big glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -120px; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(200,241,53,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero .tag { margin-bottom: 32px; animation: fadeUp 0.7s 0.1s ease both; }
+.hero h1 {
+  font-size: clamp(64px, 11vw, 128px);
+  max-width: 900px;
+  margin: 0 auto 12px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--lime);
+}
+.hero p {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 44px;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.btn-primary {
+  background: var(--lime);
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 32px;
+  border-radius: var(--radius);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  letter-spacing: 0.04em;
+}
+.btn-primary:hover {
+  background: var(--lime2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,241,53,0.25);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, transform 0.15s;
+}
+.btn-ghost:hover { border-color: var(--muted); transform: translateY(-2px); }
+
+/* scroll indicator */
+.scroll-hint {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: fadeUp 0.7s 0.6s ease both;
+}
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--lime), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+/* ─── MARQUEE STRIP ──────────────────────────────────────────── */
+.strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 14px 0;
+  background: var(--off);
+}
+.strip-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 22s linear infinite;
+  white-space: nowrap;
+}
+.strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.strip-item span { color: var(--lime); font-size: 18px; }
+
+/* ─── PRODUCTOS ──────────────────────────────────────────────── */
+/*
+  📸 IMÁGENES DE PRODUCTOS
+  ──────────────────────────
+  Las imágenes de productos se reemplazan en el HTML,
+  en los atributos src="" de cada etiqueta <img> dentro de .product-img
+  Buscá el comentario "IMAGEN PRODUCTO" en el index.html.
+*/
+.productos { padding: 100px 0; }
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.section-header h2 { font-size: clamp(44px, 6vw, 72px); }
+.section-header p { color: var(--muted); max-width: 280px; text-align: right; font-size: 15px; }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.product-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+  animation: fadeUp 0.6s ease both;
+}
+.product-card:nth-child(1) { animation-delay: 0.05s; }
+.product-card:nth-child(2) { animation-delay: 0.15s; }
+.product-card:nth-child(3) { animation-delay: 0.25s; }
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200,241,53,0.3);
+}
+.product-img {
+  aspect-ratio: 1;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+.product-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  filter: grayscale(20%);
+}
+.product-card:hover .product-img img { transform: scale(1.05); filter: grayscale(0%); }
+.product-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--lime);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.product-info {
+  padding: 20px;
+}
+.product-info h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.product-info .price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--lime);
+  letter-spacing: 0.04em;
+}
+.product-info .price-sub { font-size: 13px; color: var(--muted); margin-top: -4px; }
+.product-cta {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.product-cta:hover {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--black);
+}
+
+/* ─── BENEFICIOS ─────────────────────────────────────────────── */
+.beneficios {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+.beneficios h2 {
+  font-size: clamp(44px, 6vw, 72px);
+  text-align: center;
+  margin-bottom: 64px;
+}
+.beneficios h2 em { font-style: normal; color: var(--lime); }
+.bene-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.bene-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  transition: background 0.3s;
+}
+.bene-item:hover { background: #1c1c1c; }
+.bene-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+  display: block;
+}
+.bene-item h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.bene-item p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+/* ─── STATS STRIP ────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-item {
+  padding: 52px 32px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: var(--lime);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.stat-label { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+/* ─── CTA FINAL ──────────────────────────────────────────────── */
+.cta-section {
+  padding: 120px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(200,241,53,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section .tag { margin-bottom: 28px; }
+.cta-section h2 {
+  font-size: clamp(56px, 9vw, 110px);
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+.cta-section p { color: var(--muted); font-size: 17px; margin-bottom: 48px; }
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+}
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer p { font-size: 13px; color: var(--muted); }
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+}
+.footer-logo span { color: var(--lime); }
+
+/* ─── WHATSAPP FLOAT ─────────────────────────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 56px; height: 56px;
+  background: var(--lime);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 24px rgba(200,241,53,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: popIn 0.5s 1s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 32px rgba(200,241,53,0.5);
+}
+.whatsapp-float svg { width: 28px; height: 28px; fill: var(--black); }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .bene-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+  .section-header p { text-align: left; }
+}
+@media (max-width: 580px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .hero { padding: 80px 20px 60px; }
+  nav .container { padding-top: 14px; padding-bottom: 14px; }
+}
