@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FTM.e.d.m — Ropa Deportiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── NAVBAR ──────────────────────────────────────────────── -->
+<nav>
+  <div class="container">
+    <!--
+      📸 LOGO DEL CLIENTE
+      Reemplazá el <span> de abajo por:
+      <img src="logo.png" alt="FTM.e.d.m" class="nav-logo-img">
+      Y eliminá el <span class="nav-logo">
+    -->
+    <span class="nav-logo">FTM<span>.e.d.m</span></span>
+
+    <div class="nav-right">
+      <!-- Carrito -->
+      <button class="cart-btn" id="cartBtn" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="https://wa.me/5493865740042" target="_blank" class="nav-cta">Consultar ahora</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── CARRITO LATERAL ──────────────────────────────────────── -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3 class="display">Tu pedido</h3>
+    <button class="cart-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Todavía no agregaste productos.</p>
+  </div>
+  <div class="cart-footer">
+    <a href="#" class="btn-primary cart-send" id="cartSend" target="_blank">
+      Enviar pedido por WhatsApp →
+    </a>
+    <button class="btn-ghost cart-clear" id="cartClear">Vaciar carrito</button>
+  </div>
+</aside>
+
+<!-- ─── HERO ────────────────────────────────────────────────── -->
+<!--
+  📸 IMAGEN DE FONDO DEL HERO → styles.css, sección .hero
+  Buscá el comentario "IMAGEN DE FONDO DEL HERO" y reemplazá
+  'tu-imagen-fondo.jpg' con la imagen del cliente.
+-->
+<section class="hero">
+  <div class="container">
+    <span class="tag">🏆 Ropa deportiva de calidad</span>
+    <h1 class="display">Vestite<br>para <em>ganar.</em></h1>
+    <p>Encontrá todo lo que necesitás para entrenar y lucir bien. Consultá directo por WhatsApp.</p>
+    <div class="hero-btns">
+      <a href="#productos" class="btn-primary">Ver productos →</a>
+      <a href="https://wa.me/5493865740042" target="_blank" class="btn-ghost">Consultar ahora</a>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      scroll
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ──────────────────────────────────────────────── -->
+<div class="strip">
+  <div class="strip-track">
+    <span class="strip-item"><span>✦</span> Hombre</span>
+    <span class="strip-item"><span>✦</span> Mujer</span>
+    <span class="strip-item"><span>✦</span> Accesorios</span>
+    <span class="strip-item"><span>✦</span> Suplementos</span>
+    <span class="strip-item"><span>✦</span> Combos</span>
+    <span class="strip-item"><span>✦</span> Envíos disponibles</span>
+    <span class="strip-item"><span>✦</span> Hombre</span>
+    <span class="strip-item"><span>✦</span> Mujer</span>
+    <span class="strip-item"><span>✦</span> Accesorios</span>
+    <span class="strip-item"><span>✦</span> Suplementos</span>
+    <span class="strip-item"><span>✦</span> Combos</span>
+    <span class="strip-item"><span>✦</span> Envíos disponibles</span>
+  </div>
+</div>
+
+<!-- ─── STATS ────────────────────────────────────────────────── -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Categorías disponibles</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">24hs</div>
+    <div class="stat-label">Atención por WhatsApp</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Calidad garantizada</div>
+  </div>
+</div>
+
+<!-- ─── PRODUCTOS ────────────────────────────────────────────── -->
+<section class="productos" id="productos">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="display">Nuestros<br>productos</h2>
+      <p>Seleccioná lo que querés y enviá tu pedido directo por WhatsApp.</p>
+    </div>
+
+    <!-- BARRA DE CATEGORÍAS -->
+    <div class="cat-bar">
+      <a href="#cat-hombre"      class="cat-btn">Hombre</a>
+      <a href="#cat-mujer"       class="cat-btn">Mujer</a>
+      <a href="#cat-accesorios"  class="cat-btn">Accesorios</a>
+      <a href="#cat-suplementos" class="cat-btn">Suplementos</a>
+      <a href="#cat-combos"      class="cat-btn">Combos</a>
+    </div>
+
+    <!-- ── HOMBRE ─────────────────────────────────────────── -->
+    <div class="cat-section" id="cat-hombre">
+      <h3 class="cat-title display">Hombre</h3>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <!-- 📸 IMAGEN → reemplazá src -->
+            <img src="imagen-producto-1.jpg" alt="Producto hombre 1">
+            <span class="product-badge">Nuevo</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-producto-2.jpg" alt="Producto hombre 2">
+            <span class="product-badge">Top ventas</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-producto-3.jpg" alt="Producto hombre 3">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── MUJER ──────────────────────────────────────────── -->
+    <div class="cat-section" id="cat-mujer">
+      <h3 class="cat-title display">Mujer</h3>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-mujer-1.jpg" alt="Producto mujer 1">
+            <span class="product-badge">Nuevo</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-mujer-2.jpg" alt="Producto mujer 2">
+            <span class="product-badge">Top ventas</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-mujer-3.jpg" alt="Producto mujer 3">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── ACCESORIOS ─────────────────────────────────────── -->
+    <div class="cat-section" id="cat-accesorios">
+      <h3 class="cat-title display">Accesorios</h3>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-accesorio-1.jpg" alt="Accesorio 1">
+            <span class="product-badge">Nuevo</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-accesorio-2.jpg" alt="Accesorio 2">
+            <span class="product-badge">Top ventas</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-accesorio-3.jpg" alt="Accesorio 3">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SUPLEMENTOS ────────────────────────────────────── -->
+    <div class="cat-section" id="cat-suplementos">
+      <h3 class="cat-title display">Suplementos</h3>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-suplemento-1.jpg" alt="Suplemento 1">
+            <span class="product-badge">Nuevo</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-suplemento-2.jpg" alt="Suplemento 2">
+            <span class="product-badge">Top ventas</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-suplemento-3.jpg" alt="Suplemento 3">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del producto</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio de lista</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del producto"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── COMBOS ──────────────────────────────────────────── -->
+    <div class="cat-section" id="cat-combos">
+      <h3 class="cat-title display">Combos</h3>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-combo-1.jpg" alt="Combo 1">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del combo</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio especial combo</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del combo"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-combo-2.jpg" alt="Combo 2">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del combo</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio especial combo</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del combo"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="imagen-combo-3.jpg" alt="Combo 3">
+            <span class="product-badge">Oferta</span>
+          </div>
+          <div class="product-info">
+            <h5>Nombre del combo</h5>
+            <div class="price">$00.000</div>
+            <div class="price-sub">Precio especial combo</div>
+            <button class="product-cta add-to-cart"
+              data-name="Nombre del combo"
+              data-price="00.000">
+              + Agregar al pedido
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── BENEFICIOS ───────────────────────────────────────────── -->
+<section class="beneficios">
+  <div class="container">
+    <h2 class="display">¿Por qué <em>elegirnos?</em></h2>
+    <div class="bene-grid">
+      <div class="bene-item">
+        <span class="bene-icon">⚡</span>
+        <h3>Calidad garantizada</h3>
+        <p>Productos seleccionados para que entrenés y te veas bien. Calidad en cada detalle.</p>
+      </div>
+      <div class="bene-item">
+        <span class="bene-icon">📱</span>
+        <h3>Pedido fácil</h3>
+        <p>Agregá lo que querés y enviá tu pedido directo por WhatsApp. Sin vueltas.</p>
+      </div>
+      <div class="bene-item">
+        <span class="bene-icon">💬</span>
+        <h3>Atención personalizada</h3>
+        <p>Te asesoramos para que elijas lo mejor según tu entrenamiento y tu estilo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ─────────────────────────────────────────────── -->
+<section class="cta-section">
+  <span class="tag">¿Listo para empezar?</span>
+  <h2 class="display">Tu ropa.<br>Tu ritmo.<br><em>Ya.</em></h2>
+  <p>Consultanos por WhatsApp y te ayudamos a elegir.</p>
+  <a href="https://wa.me/5493865740042" target="_blank" class="btn-primary" style="font-size:16px; padding:18px 44px;">
+    Hablemos por WhatsApp →
+  </a>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <span class="footer-logo">FTM<span>.e.d.m</span></span>
+    <p>Ropa deportiva · 2025</p>
+    <a href="https://www.instagram.com/ftm.e.d.m" target="_blank" class="footer-ig">
+      📷 @ftm.e.d.m
+    </a>
+  </div>
+</footer>
+
+<!-- ─── BOTÓN FLOTANTE WHATSAPP ──────────────────────────────── -->
+<a href="https://wa.me/5493865740042" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
